@@ -1,0 +1,28 @@
+header {
+    width: 100%;
+    height: 50px;
+    font-size: 20pt;
+}
+
+nav {
+    float: left;
+    height: 500px;
+    width: 10%;
+    background-color: lightblue;
+
+}
+
+section#main {
+    float: right;
+    height: 500px;
+    width: 70%;
+    background-color: lightblue;
+}
+
+footer {
+    text-align: right;
+    clear: both;
+    width:100%;
+    height: 300px;
+    border: 1px solid #000000;
+}

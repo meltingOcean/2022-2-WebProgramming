@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" style="height:100%;">
+    {% include 'base/head.html' %}
+
+    {% block script %}
+    {% endblock %}
+
+    <div id="body-wrapper">
+        {% include 'base/header.html' %}
+        {% block additional_header %}
+        {% endblock %}
+        <div id="body-content">
+        {% include 'base/nav.html' %}
+        {% block content %}
+        {% endblock %}
+        </div>
+        {% include 'base/footer.html' %}
+    </div>
+
+
+</html>

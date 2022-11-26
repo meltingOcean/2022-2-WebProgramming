@@ -1,0 +1,67 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div class="container-md">
+    <div style="text-align: center; width: 500px">
+        <h1>Welcome to Flee Market!!</h1>
+
+            <div class="col-form-check">
+                <input class="form-check-input" type="radio" name="usertyperadio" id="usertyperadio1">
+                <label class="form-check-label" for="usertyperadio1">
+                Admin
+                </label>
+            </div>
+            <div class="col-form-check">
+                <input class="form-check-input" type="radio" name="usertyperadio" id="usertyperadio2">
+                <label class="form-check-label" for="usertyperadio2">
+                Seller
+                </label>
+            </div>
+            <div class="col-form-check">
+                <input class="form-check-input" type="radio" name="usertyperadio" id="usertyperadio3">
+                <label class="form-check-label" for="usertyperadio3">
+                Buyer
+                </label>
+            </div>
+
+
+        <div class="mb-3 row">
+            <label for="username" class="col-sm-2 col-form-label">NAME</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="username" id="username"/><br/>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="password" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="password" id="password"/><br/>
+            </div>
+        </div>
+        <input type="button" id="btn_submit" value="login"></input>
+        <input type="button" id="btn_submit" value="register"></input>
+        <p id="result"></p>
+    </div>
+
+</div>
+    <script>
+        $(document).ready(function () {
+            $("#btn_submit").click(function (event) {
+                var username = $("#username").val()
+                var password = $("#password").val()
+                var data = { "username": username, "password": password }
+                $.ajax({
+                    url: "/token",
+                    type: "post",
+                    data: data,
+                    success: function (data, txtStatus, xhr) {
+                        window.location = "/"
+                    },
+                    error: function(e) {
+                        $("#result").html("login failed")
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}
